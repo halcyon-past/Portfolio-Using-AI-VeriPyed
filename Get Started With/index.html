@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        nav {
+            background: #333;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 1rem;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            background-image: url('me.jpeg'); /* Add Your Image Here */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        section {
+            padding: 2rem;
+        }
+
+        .about, .skills, .projects, .contact {
+            background: #f4f4f4;
+            margin-bottom: 2rem;
+        }
+
+        .about h2, .skills h2, .projects h2, .contact h2 {
+            margin-bottom: 1rem;
+        }
+
+        .skills ul, .projects ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .skills li, .projects li {
+            margin: 0.5rem 0;
+        }
+
+        .projects h2 {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .project-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .project-card p {
+            margin: 0 1rem 1rem;
+        }
+
+        .project-card a {
+            display: inline-block;
+            margin: 0 1rem 1rem;
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .project-card a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #282c34;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Section -->
+    <nav>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero" class="hero">
+        <h1>[Your Name]</h1>
+        <p>Hi, I'm [Your Name], a passionate developer</p>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about" class="about">
+        <!--Use SVG Icons wherever possible-->
+        <h2>About Me</h2>
+        <p>I'm a full-stack developer with experience in building web applications. I love creating things that make an impact.</p>
+        <div class="work">
+            <!--Make this div contents like a timeline-->
+            <h3>Work Experience</h3>
+            <ul>
+                <li>Software Engineer at ABC Corp. (2022 - Present)</li>
+                <li>Junior Developer at XYZ Ltd. (2020 - 2022)</li>
+            </ul>
+        </div>
+        <div class="edu">
+            <!--Make this div contents like a timeline-->
+            <h3>Education</h3>
+            <ul>
+                <li>Bachelor's in Computer Science from [University Name] (2021 - 2025)</li>
+                <li>Higher Secondary [School Name] [Board] (2019-2021)</li>
+            </ul>
+        </div>
+        <h3>Education</h3>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <!--Use SVG Icons for all Tech Stack-->
+        <h2>Skills</h2>
+        <ul>
+            <li>JavaScript</li>
+            <li>React.js</li>
+            <li>Node.js</li>
+            <li>HTML & CSS</li>
+            <li>MongoDB</li>
+        </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="project-container">
+            <div class="project-card">
+                <img src="project1.jpg" alt="Project 1">
+                <h3>Project 1</h3>
+                <p>A web app built with React and Node.js.</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="project2.jpg" alt="Project 2">
+                <h3>Project 2</h3>
+                <p>An e-commerce platform using JavaScript and MongoDB.</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="project3.jpg" alt="Project 3">
+                <h3>Project 3</h3>
+                <p>A personal portfolio showcasing my work.</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Me Section -->
+    <section id="contact" class="contact">
+        <!--Use SVG Icons for all socials-->
+        <h2>Contact Me</h2>
+        <p>You can reach me through the following:</p>
+        <ul>
+            <li><a href="mailto:your.email@example.com">Email</a></li>
+            <li><a href="https://linkedin.com/in/yourprofile">LinkedIn</a></li>
+            <li><a href="https://github.com/yourprofile">GitHub</a></li>
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 [Your Name]. All rights reserved.</p>
+    </footer>
+    <script>
+        /*The Javascript Code is written here*/
+    </script>
+</body>
+</html>
