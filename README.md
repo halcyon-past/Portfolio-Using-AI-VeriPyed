@@ -6,7 +6,7 @@ This is the repository for your reference for the youtube video where I teach yo
 
 ### Prerequisites
 
-- **VS Code**: Download Visual Studio Code form [here](https://code.visualstudio.com/).
+- **VS Code**: Download Visual Studio Code from [here](https://code.visualstudio.com/).
 - **Github Account**: If you want to host your website in github you need to have a github account.
 
 ### Installation
