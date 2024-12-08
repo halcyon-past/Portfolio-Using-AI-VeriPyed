@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aritro Saha - Cyberpunk Portfolio</title>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --neon-blue: #00f0ff;
+            --neon-pink: #ff00ff;
+            --dark-bg: #0a0a1a;
+            --glitch-primary: rgba(0, 240, 255, 0.5);
+            --glitch-secondary: rgba(255, 0, 255, 0.5);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background-color: var(--dark-bg);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Glitch Effects */
+        .glitch {
+            position: relative;
+            text-shadow: 
+                0.05em 0 var(--glitch-primary),
+                -0.05em 0.02em var(--glitch-secondary);
+            animation: glitch-anim 2s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% {
+                text-shadow: 
+                    0.05em 0 var(--glitch-primary),
+                    -0.05em 0.02em var(--glitch-secondary);
+            }
+            15% {
+                text-shadow: 
+                    0.05em 0 var(--glitch-primary),
+                    -0.05em 0.02em var(--glitch-secondary);
+            }
+            16% {
+                text-shadow: 
+                    -0.05em -0.025em var(--glitch-secondary),
+                    0.05em 0.025em var(--glitch-primary);
+            }
+            49% {
+                text-shadow: 
+                    -0.05em -0.025em var(--glitch-secondary),
+                    0.05em 0.025em var(--glitch-primary);
+            }
+            50% {
+                text-shadow: 
+                    0.05em 0.05em var(--glitch-primary),
+                    -0.05em 0 var(--glitch-secondary);
+            }
+            99% {
+                text-shadow: 
+                    0.05em 0.05em var(--glitch-primary),
+                    -0.05em 0 var(--glitch-secondary);
+            }
+            100% {
+                text-shadow: 
+                    -0.05em 0 var(--glitch-secondary),
+                    0.05em 0.05em var(--glitch-primary);
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            background: rgba(10, 10, 26, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            transition: max-height 0.3s ease-in-out;
+        }
+
+        nav ul li a {
+            color: var(--neon-blue);
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--neon-pink);
+        }
+
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--neon-blue);
+            cursor: pointer;
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Responsive Navigation */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 10, 26, 0.9);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-in-out;
+            }
+
+            nav ul.active {
+                max-height: 500px; /* Arbitrary large value to allow menu expansion */
+            }
+
+            nav ul li {
+                margin: 1rem 0;
+                text-align: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background-image: url('me.jpeg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 26, 0.6);
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            color: var(--neon-blue);
+            z-index: 10;
+        }
+
+        .hero p {
+            color: var(--neon-pink);
+            font-size: 1.5rem;
+            z-index: 10;
+        }
+
+
+        .about h3{
+            padding: 2rem 0;
+        }
+
+        .about-me {
+            padding: 2rem 0;
+            height: 30vh;
+        }
+
+        .about-me h2{
+            padding: 2rem 0;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .timeline-item {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+            border-left: 4px solid var(--neon-blue);
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            left: -32px;
+            top: 30px;
+        }
+
+        .timeline-item h3 {
+            color: var(--neon-pink);
+        }
+
+        .skills {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .skill-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 150px;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--neon-blue);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.1);
+            border-color: var(--neon-pink);
+        }
+
+        .skill-item i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-item p {
+            color: var(--neon-blue);
+            font-weight: bold;
+        }
+
+        /* Projects */
+        .projects{
+            height:80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .project-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-container {
+            margin-top:50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--neon-blue);
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            border-color: var(--neon-pink);
+        }
+
+        .contact{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 50vh;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 10, 26, 0.8);
+            text-align: center;
+            padding: 20px;
+            color: var(--neon-blue);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            .projects{
+                height:auto;
+            }
+
+        }
+
+        /* Centering Text and Elements Globally */
+        .container, .skills, .projects, .contact, footer, .about {
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        /* Optional: Adjust Hero Section Text Alignment */
+        .hero h1, .hero p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <h1 class="glitch">Aritro Saha</h1>
+        <p class="glitch">Cybernetic Developer | Digital Architect</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-me">
+                <h2 class="glitch">About Me</h2>
+                <p>Quantum-powered full-stack developer navigating the digital realm. Crafting immersive experiences at the intersection of code and creativity.</p>
+            </div>
+            
+            
+            <h3>Work Experience</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Software Engineer</h3>
+                    <p>ABC Corp (2022 - Present)</p>
+                    <p>Architecting digital solutions that push technological boundaries.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Junior Developer</h3>
+                    <p>XYZ Ltd (2020 - 2022)</p>
+                    <p>Pioneering innovative tech strategies and implementation.</p>
+                </div>
+            </div>
+
+            <h3>Education</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>B.Sc Computer Science</h3>
+                    <p>Digital University (2021 - 2025)</p>
+                    <p>Specializing in advanced computational paradigms.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Higher Secondary</h3>
+                    <p>Tech Preparatory School (2019 - 2021)</p>
+                    <p>Advanced STEM curriculum with coding specialization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2 class="glitch">Tech Arsenal</h2>
+        <div class="skill-grid">
+            <div class="skill-item">
+                <i class="fab fa-js-square" style="color: #F0DB4F;"></i>
+                <p>JavaScript</p>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-react" style="color: #61DBFB;"></i>
+                <p>React.js</p>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-node-js" style="color: #68A063;"></i>
+                <p>Node.js</p>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-html5" style="color: #E34F26;"></i>
+                <p>HTML5</p>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-css3-alt" style="color: #264DE4;"></i>
+                <p>CSS3</p>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-database" style="color: #4DB33D;"></i>
+                <p>MongoDB</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2 class="glitch">Digital Creations</h2>
+        <div class="project-container">
+            <div class="project-card">
+                <img src="project1.jpg" alt="Cyber Dashboard">
+                <h3>Cyber Dashboard</h3>
+                <p>Advanced analytics platform with real-time data visualization</p>
+                <a href="#" class="btn">Explore</a>
+            </div>
+            <div class="project-card">
+                <img src="project2.jpg" alt="Neural Network">
+                <h3>Neural Network</h3>
+                <p>Machine learning application for predictive modeling</p>
+                <a href="#" class="btn">Investigate</a>
+            </div>
+            <div class="project-card">
+                <img src="project3.jpg" alt="Quantum Planner">
+                <h3>Quantum Planner</h3>
+                <p>AI-powered task management and optimization tool</p>
+                <a href="#" class="btn">Discover</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="glitch">Establish Connection</h2>
+        <div class="contact-links">
+            <a href="mailto:aritro.saha@example.com"><i class="fas fa-envelope"></i> Email</a>
+            <a href="https://linkedin.com/in/aritrosaha"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/aritrosaha"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Aritro Saha | Cybernetic Portfolio</p>
+    </footer>
+
+    <!-- GSAP and ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        // GSAP Scroll Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Sections to animate
+        const sections = ['#about', '#skills', '#projects', '#contact'];
+
+        sections.forEach(section => {
+            gsap.from(section, {
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse'
+                },
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                ease: 'power2.out'
+            });
+        });
+
+        // Glitch effect for titles
+        const glitchElements = document.querySelectorAll('.glitch');
+        glitchElements.forEach(el => {
+            el.addEventListener('mouseover', () => {
+                el.style.animation = 'glitch-anim 0.5s infinite linear alternate-reverse';
+            });
+            el.addEventListener('mouseout', () => {
+                el.style.animation = 'none';
+            });
+        });
+
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('nav ul');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Toggle hamburger icon between bars and times
+            hamburger.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close the menu when a link is clicked (optional)
+        const navItems = document.querySelectorAll('nav ul li a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    hamburger.querySelector('i').classList.remove('fa-times');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
